@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//golobal
+		let name = "";
+		let email = false;
+		
+		function initValue(list){
+			name = list.username.value;
+			email = list.checkmail.checked;
+		}
+		
+		function copySend(list){
+			console.log(list)
+			console.log(list.username.value);
+			console.log(list.checkmail.checked);
+			
+			if(list.copy.checked){
+				initValue(list)
+				list.copyname.value = name;//list.username.value;
+				list.copymail.checked = email;//list.checkmail.checked;
+			}else{
+				alert("선택 해제");
+				list.copyname.value = "";
+				list.copymail.checked = false;
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>주문정보</legend>
+			이름:<input type="text" name="username"><br> 
+			    <input type="checkbox" name="checkmail">배송정보 Email수신<br>
+			<hr>
+			<input type="checkbox" name="copy" onclick="copySend(this.form)">
+			주문자 정보와 배송지 정보 동일
+		</fieldset>
+		<hr>
+		<fieldset>
+			<legend>배송지 정보</legend>
+			이름:<input type="text" name="copyname"><br> 
+			       <input type="checkbox" name="copymail">배송정보 Email수신<br>
+		</fieldset>
+	</form>
+</body>
+</html>

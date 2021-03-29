@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function displayDate(){
+			console.log("call");
+			document.getElementById("demo").innerHTML = new Date();
+		}
+		//document.getElementById("mybtn").onclick = displayDate();
+		//body실행 안되서 메모리에 없다
+		
+		window.onload = function(){
+			console.log("load");
+			//document.getElementById("mybtn").onclick = displayDate();//이벤트에 함수를 제어 할때 괄호 제거
+			//https://www.w3schools.com/jsref/met_document_addeventlistener.asp
+			
+		}
+	</script>
+</head>
+<body>
+	<button id = "mybtn">누르시오</button>
+	<br>
+	<button id = "mybtn" onclick = "">누르시오2</button>
+	<br>
+	<p id = "demo"></p>
+</body>
+<script type="text/javascript">
+	//버튼을 클릭하면 함수를 호출...
+	//displayDate();
+	
+	//버튼을 클릭하기전에 displayDate() 호출 되어버렸다 ... 
+	document.getElementById("mybtn").onclick = displayDate; //displayDate() 소괄호를 만나면 바로 호출
+</script>
+</html>

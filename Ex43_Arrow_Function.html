@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p id = "demo"></p>
+	<p id = "demo2"></p>
+</body>
+<script>
+	let foo = function(){
+		console.log("foo");
+	}
+	foo();
+	
+	//Es6 (함수의 줄임 표)
+	//매개변수가 없는 경우(parameter)
+	let bar = () => console.log("bar");
+	bar();
+	
+	//매개변수 1개
+	//let foo2 = function(x) {return x}
+	
+	let foo2 = x => x;
+	
+	let hello;
+	//hello = (val) => "hello" + val;
+	hello = val => "hello" + val;
+	let v = hello("aaa");
+	console.log(v);
+	document.getElementById("demo").innerHTML = hello("안녕");
+	
+	//매개변수가 2개 이상인 경
+	//let foo3 = (a, b) => {return a + b};
+	let foo3 = (a, b) => a + b;
+	let v2 = foo3(10, 20);
+	let foo4 = (a, b) => {let c = 100; return a + b+ c};
+	
+	//객체 변환
+	let foo5 = () => ({a:1, b:2, c:3});
+	let v3 = foo5();
+	console.log(v3);
+	
+	//즉시 실행 함수(암)
+	//원칙: 함수는 호출에 의해서
+	(
+		function(){
+			console.log("즉시 실행 함수");
+		}()
+	);
+	
+	//화살표 표현식
+	
+	(
+		() => {console.log("즉시 실행 함수 (화살표 표현)");}	
+	)();
+	//Array 객체가 가지고 있는 다양한 함수...
+	//https://www.w3schools.com/jsref/jsref_obj_array.asp
+	
+	
+	//암기..
+	//1. for(let i = 0; i < 10; i++){}
+	//2. for(let index in Array){Array[index]}
+	//{a:1, b:2, c:3}
+	//3. for(let key in Object){}
+	// + 추가으로
+	//Array.isArray(); 배열이니?
+	//4. Array.forEach(function());
+	//Array.map();
+	
+	function myfunc(){
+		let fruits = ["A", "B", "C" ,"D"];
+		let x = document.getElementById("demo2");
+		x.innerHTML = Array.isArray(fruits);
+	}
+	myfunc();
+	
+	let txt = "";
+	let numbers = [45, 4, 9, 16, 25];
+	//numbers.forEach(function(value, index, array){
+		
+	//});
+	numbers.forEach(myFunc2);
+	function myFunc2(value, index, array){
+		txt = txt + "(" + value + ")" + "[" + index + "] [" + array + "]";
+		console.log(txt);
+	}
+	//let numbers = [45, 4, 9, 16, 25];
+	let numbersmap = numbers.map(myFunc3); //새로운 배열... 조작해
+	console.log(numbersmap);//new Array....
+	
+	function myFunc3 (value, index, array){
+		return value *2;
+	}
+	
+	//////////////////////////////////////////////////////////////
+	
+	//map()을 사용하는 이유: 조작된 값을 배열로 받을 
+	let evens = [2,4,6,8];
+	let odds = evens.map(val => val + 1); //function(val) {return val + 1}
+	console.log(odds);
+	
+	let nums = evens.map((value, index) => value + index);
+	console.log(nums);
+	
+	let arr = [];
+	evens.forEach(value => {
+		if(value % 2 ===0){
+			arr.push(value);
+		}
+	})
+	
+	console.log(arr);
+	
+	
+</script>
+</html>

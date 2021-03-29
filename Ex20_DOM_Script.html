@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.democlass { color: red;}
+	</style>
+</head>
+<body>
+	<div id = "div">
+		<h1 class = "democlass">Hell world_1</h1>
+		<h1 class = "democlass">Hell world_2</h1>
+		<h1 class = "democlass">Hell world_3</h1>
+	</div>
+</body>
+<script type="text/javascript">
+	//document.getElementsByTagName("h1")[0].removeAttribute("class");
+	/*  
+		
+	let arr = document.getElementsByTagName("h1");
+	for(let i = 0; i < arr.length; i++){
+		arr[i].removeAttribute("class");
+	}
+	
+	*/
+	//문제발생: 동적
+	
+	/*  
+	let arr = document.getElementsByTagName("h1");
+	for(let index in arr){
+		console.log(arr[index]);
+		let c = document.createElement("h1");
+		document.getElementById("div").removeChild(arr[index]);
+				
+		console.log("length: " + arr.length); // 2, 1
+	}
+	삭제 순서 0 -> 1 -> 2
+	
+	for(let index in arr){
+		if(arr.length > 0){
+			console.log(index + " / " + arr.length + " / " + (arr.length - 1)); //삭제 순서 반대로 2 -> 1 -> 0 음수가 되면 종료
+			document.getElementById("div").removeChild(arr[arr.length -1]);
+		}
+	}
+	*/
+	
+	//[자기 자신 삭제하기]
+	let arr = document.getElementsByTagName("h1");
+	let len = arr.length;
+	for(let i = 0; i < len; i++){
+		//remove()
+		arr[arr.length -1].remove();
+	}
+</script>
+</html>
+
+
+
+
+
+

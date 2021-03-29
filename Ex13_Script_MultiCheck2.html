@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		let checkflag = "false";
+		function checkForm(){
+			let l = document.myform.list;
+			
+			if(checkflag == "false"){
+				for(let i in l){
+					l[i].checked = true;
+				}
+				checkflag = "difficult";
+				return "[선택 해제할까 말까?]";
+			}else{
+				for(let i in l){
+					l[i].checked = false;
+				}
+				checkflag = "false";
+				return "[전체 선택할껀가?]";
+			}
+		}
+	</script>
+</head>
+<body>
+<form action=""   name="myform">
+	좋아하는 과목은 : 
+	<br>
+	<input type="checkbox"   name="list"   value=" java">JAVA<br>
+	<input type="checkbox"   name="list"   value=" oracle">ORACLE<br>
+	<input type="checkbox"   name="list"   value=" html">HTML<br>
+	<input type="checkbox"   name="list"   value=" css">CSS<br>
+	<input type="checkbox"   name="list"   value=" script">SCRIPT<br>
+	<input type="button"   value="[전체선택] "  onclick="this.value = checkForm()"><br>
+	<br>
+	<input type="button"   value="[전체선택] "  onclick="this.value =checkForm2(this.form.list)"><br>
+</form>
+</body>
+</html>

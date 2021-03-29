@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		let myObj = {name:"john", age:30, city: "seoul"};
+		console.log(myObj);
+		
+		//[객체 데이터]를 [문자열 데이터]로 변환
+		//login.jsp?name=john&age=30&city=seoul
+		let StirngObj = JSON.stringify(myObj);//POINT
+		console.log(StirngObj);
+		console.log(typeof(StirngObj));
+		
+		//[문자열 데이터]를 [객체 데이터]로 변환(단, 조건의 맞는 구조)
+		let myObj2 = '{"name":"john", "age":30, "city": "seoul"}';
+		console.log(typeof(myObj2));
+		let myjson = JSON.parse(myObj2);//POINT
+		console.log(typeof(myjson));
+		
+		//POINT
+		console.log(myjson.name);		//객체.속성명
+		console.log(myjson["name"]);	//객체["속성명"]
+		console.log(myjson["age"]);
+		/*  
+		확장자
+		index.htm, index.html
+		Css 		> common.css
+		javascript 	> common.js
+		json 		> common.json >> MINE >> application/json
+		xml			> common.xml
+		
+		*/
+		let myCars;
+		myCars = {
+				"name":"john",
+				"age": 30,
+				"cars":[
+					{name:"Ford", model:["Fiesta", "Focus", "Mustang"]},
+					{name:"BMW", model:["320", "x3", "x5"]},
+					{name:"Fiat", model:["500", "Panda"]}
+				]
+		
+		}
+		
+		let cars;
+		
+		for(let index in myCars.cars){
+			console.log(myCars.cars[index]);
+			document.write("차량이름: " + myCars.cars[index].name);
+			document.write("<br>")
+			for(let i in myCars.cars[index].model){
+				document.write("차량모델: " + myCars.cars[index].model[i]);
+				document.write("<br>");
+			}
+			document.write("<br>");
+		}
+		
+		let myCars2;
+		
+		myCars2 = {
+				name: "sj",
+				age: 27,
+				cars:[
+					{name: "Fefarri", model:["718", "spider", "laFerarri"]},
+					{name: "Ramborgini", model:["Aventador", "Uracan"]},
+					{name: "Porche", model:["Boxter", "911", "922"]}
+				]
+		
+		}
+		
+		for(let index in myCars2.cars){
+			document.write("회사이름: " + myCars2.cars[index].name + "<br>");
+			for(let i in myCars2.cars[index].model){
+				document.write("차종: " + myCars2.cars[index].model[i] + "<br>");
+			}
+			document.write("<br>");
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
